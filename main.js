@@ -50,4 +50,24 @@ const DisplayList = (items, wrapper, rows_per_page, page) => {
     }
 }
 
+const SetupPagination = (items, wrapper, rows_per_page) => {
+    wrapper.innerHTML = "";
+
+    let page_count = Math.ceil(items.length / rows_per_page);
+    for(let i = 1; i < page_count + 1; i++) {
+        let btn = PaginationButton(i);
+        wrapper.appendChild(btn);
+    }
+}
+
+const PaginationButton = (page) => {
+    let button = document.createElement("button");
+    button.innerText = page;
+
+    if(current_page == page) button.classList.add("active");
+
+    return button;
+}
+
 DisplayList(list_items, list_element, rows, current_page);
+SetupPagination(list_items, pagination_element, rows)
