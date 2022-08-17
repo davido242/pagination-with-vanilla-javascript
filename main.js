@@ -21,7 +21,7 @@ const list_items = [
     "item 20",
     "item 21",
     "item 22",
-    "item 23",
+    "item 23"
 ];
 
 const list_element = document.getElementById("list");
@@ -54,20 +54,31 @@ const SetupPagination = (items, wrapper, rows_per_page) => {
     wrapper.innerHTML = "";
 
     let page_count = Math.ceil(items.length / rows_per_page);
-    for(let i = 1; i < page_count + 1; i++) {
-        let btn = PaginationButton(i);
-        wrapper.appendChild(btn);
+    for (let i = 1; i < page_count + 1; i++) {
+        let btn = PaginationButton(i, items);
+        wrapper.appendChild(btn); 
     }
 }
 
-const PaginationButton = (page) => {
+const PaginationButton = (page, items) => {
     let button = document.createElement("button");
     button.innerText = page;
 
     if(current_page == page) button.classList.add("active");
 
+    button.addEventListener("click", function () {
+        current_page = page;
+        DisplayList(items, list_element, rows, current_page);
+
+        let current_btn = document.querySelector('.pagenumbers button.active');
+        current_btn.classList.remove('active');
+
+        button.classList.add('active');
+
+    });
+
     return button;
 }
 
 DisplayList(list_items, list_element, rows, current_page);
-SetupPagination(list_items, pagination_element, rows)
+SetupPagination(list_items, pagination_element, rows);
