@@ -5,3 +5,6 @@ Learning the concepts behind pagination using vanilla javascript cum html and cs
 # Added Buttons
 ![image](https://user-images.githubusercontent.com/64144845/185116984-ac9dfbdf-55dd-4536-a285-3c2661177026.png)
 
+## Final Stage
+![image](https://user-images.githubusercontent.com/64144845/185201332-736c5509-aff3-43de-821e-28e8b380ff04.png)
+
